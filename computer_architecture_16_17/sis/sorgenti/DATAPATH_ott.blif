@@ -1,0 +1,86 @@
+.model DATAPATH
+.inputs start ph7 ph6 ph5 ph4 ph3 ph2 ph1 ph0
+.outputs to st1 st0 nck7 nck6 nck5 nck4 nck3 nck2 nck1 nck0
+.latch    sum7 reg7 re NIL 0
+.latch    sum6 reg6 re NIL 0
+.latch    sum5 reg5 re NIL 0
+.latch    sum4 reg4 re NIL 0
+.latch    sum3 reg3 re NIL 0
+.latch    sum2 reg2 re NIL 0
+.latch    sum1 reg1 re NIL 0
+.latch    sum0 reg0 re NIL 0
+.names sum7 sum6 sum1 sum2 sum3 sum4 sum5 to
+1------ 1
+-1----- 1
+----1-- 1
+-----1- 1
+------1 1
+--11--- 1
+.names ph7 ph6 ph5 ph4 ph3 ph2 st1 [6295] st0
+1------- 1
+------0- 1
+-11----- 1
+-1-11--- 1
+-1-1-1-- 1
+-1-1---1 1
+.names start reg7 nck7
+01 1
+.names start reg6 nck6
+01 1
+.names start reg5 nck5
+01 1
+.names start reg4 nck4
+01 1
+.names start reg3 nck3
+01 1
+.names start reg2 nck2
+01 1
+.names start reg1 nck1
+01 1
+.names start reg0 nck0
+01 1
+.names nck7 [6298] sum7
+11 1
+00 1
+.names nck6 [6299] sum6
+11 1
+00 1
+.names nck0 sum0
+0 1
+.names nck1 nck0 sum1
+01 1
+10 1
+.names nck2 [6296] sum2
+11 1
+00 1
+.names nck3 [6300] sum3
+11 1
+00 1
+.names nck4 nck3 sum3 [2315] sum4
+1--0 1
+-100 1
+.names nck5 [2315] sum5
+01 1
+10 1
+.names nck4 nck3 nck2 [6296] [2315]
+1110 1
+.names ph7 ph6 ph5 ph4 ph3 ph2 [6295] st1
+1------ 1
+-1----- 1
+--11111 1
+.names ph1 ph0 [6295]
+1- 1
+-1 1
+.names nck1 nck0 [6296]
+0- 1
+-0 1
+.names nck6 sum6 [6298]
+0- 1
+-1 1
+.names nck5 [2315] [6299]
+0- 1
+-0 1
+.names nck2 sum2 [6300]
+0- 1
+-1 1
+.end

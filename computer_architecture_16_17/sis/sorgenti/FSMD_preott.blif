@@ -1,0 +1,23 @@
+# Modello finale FSMD
+
+.model FSMD
+.inputs init reset ph7 ph6 ph5 ph4 ph3 ph2 ph1 ph0
+.outputs st1_OUT st0_OUT nck7 nck6 nck5 nck4 nck3 nck2 nck1 nck0 vlv1 vlv0
+
+# Dichirazione modulo FSM. Gli ingressi init e reset del modello sono 
+# collegati agli ingressi del modulo FSM, l'ingresso vlvX è collegato 
+# all'uscita vlvX, l'ingresso stX_IN è collegato all'uscita stX del 
+# datapath e l'uscita stX_OUT della FSM è collegata all'uscita stX_OUT 
+# del modello
+.subckt FSM init=init reset=reset vlv1=vlv1 vlv0=vlv0 start=start st0_IN=st0_IN st1_IN=st1_IN st0_OUT=st0_OUT st1_OUT=st1_OUT to=to
+
+# Dichirazione modello datapath. L'ingresso start è collegato all'uscita # start della FSM, l'ingresso phX è collegato all'ingresso phX del 
+# modulo. L'uscita nckX è collegata all'uscita nckX del modello e 
+# l'uscita stX è collegata all'ingresso stX_IN della FSM
+.subckt DATAPATH to=to start=start ph7=ph7 ph6=ph6 ph5=ph5 ph4=ph4 ph3=ph3 ph2=ph2 ph1=ph1 ph0=ph0 st0=st0_IN st1=st1_IN nck7=nck7 nck6=nck6 nck5=nck5 nck4=nck4 nck3=nck3 nck2=nck2 nck1=nck1 nck0=nck0
+
+# Sezione search
+.search DATAPATH_ott.blif
+.search FSM_ott.blif
+
+.end

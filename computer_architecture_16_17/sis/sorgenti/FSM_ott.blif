@@ -1,0 +1,79 @@
+.model FSM
+.inputs init reset st1_IN st0_IN to
+.outputs start vlv1 vlv0 st1_OUT st0_OUT
+.latch    [6051] LatchOut_v5   1
+.latch    [6052] LatchOut_v6   0
+.start_kiss
+.i 5
+.o 5
+.p 17
+.s 3
+.r S0
+0---- S0 S0 10000
+1001- S0 S2 10001
+1010- S0 S0 00010
+1011- S0 S1 10011
+11--- S0 S0 10000
+11--- S2 S0 10000
+0---- S2 S0 10000
+10010 S2 S2 00001
+10011 S2 S2 00101
+1011- S2 S1 10011
+1010- S2 S0 10010
+11--- S1 S0 10000
+0---- S1 S0 10000
+10110 S1 S1 00011
+10111 S1 S1 01011
+1001- S1 S2 10001
+1010- S1 S0 10010
+.end_kiss
+.latch_order LatchOut_v5 LatchOut_v6
+.code S0 10
+.code S2 00
+.code S1 11
+.names st1_OUT st0_OUT [6051]
+1- 1
+-0 1
+.names st1_IN st0_OUT [6052]
+11 1
+.names LatchOut_v5 LatchOut_v6 [6052] st1_OUT st0_OUT start
+-01-- 1
+1--0- 1
+0---0 1
+-1--0 1
+.names to LatchOut_v6 [6052] vlv1
+111 1
+.names st1_IN to LatchOut_v5 [6065] vlv0
+0101 1
+.names [6052] st0_OUT [6065] st1_OUT
+1-- 1
+-01 1
+.names st0_IN [6065] st0_OUT
+11 1
+.names init reset [6065]
+10 1
+.exdc 
+.inputs init reset st1_IN st0_IN to LatchOut_v5 LatchOut_v6
+.outputs [6051] [6052] start vlv1 vlv0 st1_OUT st0_OUT
+.names init reset st1_IN st0_IN LatchOut_v5 LatchOut_v6 [6051]
+----01 1
+1000-- 1
+.names init reset st1_IN st0_IN LatchOut_v5 LatchOut_v6 [6052]
+----01 1
+1000-- 1
+.names init reset st1_IN st0_IN LatchOut_v5 LatchOut_v6 start
+----01 1
+1000-- 1
+.names init reset st1_IN st0_IN LatchOut_v5 LatchOut_v6 vlv1
+----01 1
+1000-- 1
+.names init reset st1_IN st0_IN LatchOut_v5 LatchOut_v6 vlv0
+----01 1
+1000-- 1
+.names init reset st1_IN st0_IN LatchOut_v5 LatchOut_v6 st1_OUT
+----01 1
+1000-- 1
+.names init reset st1_IN st0_IN LatchOut_v5 LatchOut_v6 st0_OUT
+----01 1
+1000-- 1
+.end

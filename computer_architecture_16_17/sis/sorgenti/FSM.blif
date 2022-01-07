@@ -1,0 +1,48 @@
+.model FSM
+.inputs init reset st1_IN st0_IN to
+.outputs start vlv1 vlv0 st1_OUT st0_OUT
+
+# Dichiarazione dell' inizio della FSM
+.start_kiss
+.i 5     # Numero di input
+.o 5     # Numero di output
+.s 4     # Numero di stati
+.p 15    # Numero di transizioni
+.r INIT  # Stato di reset
+
+# Tabella delle transizioni
+# In ordine: ingressi, stato presente, stato prossimo, uscite
+
+# INIT
+0---- INIT INIT     10000
+11--- INIT INIT     10000
+1011- INIT BASICO   10011
+1001- INIT ACIDO    10001
+
+# BASICO
+11--- BASICO INIT   10000
+0---- BASICO INIT   10000
+10110 BASICO BASICO 00011
+10111 BASICO BASICO 01011
+1001- BASICO ACIDO  10001
+1010- BASICO NEUTRO 10010
+
+# ACIDO
+11--- ACIDO INIT    10000
+0---- ACIDO INIT    10000
+10010 ACIDO ACIDO   00001
+10011 ACIDO ACIDO   00101
+1011- ACIDO BASICO  10011
+1010- ACIDO NEUTRO  10010
+
+# NEUTRO
+1010- NEUTRO NEUTRO 00010
+1011- NEUTRO BASICO 10011
+1001- NEUTRO ACIDO  10001
+0---- NEUTRO INIT   10000
+11--- NEUTRO INIT   10000
+
+# Fine della FSM
+.end_kiss
+
+.end

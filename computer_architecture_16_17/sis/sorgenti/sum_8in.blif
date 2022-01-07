@@ -1,0 +1,15 @@
+# Modello sommatore di due sequenze su 8 bit
+
+.model SOMMATORE_8_BIT
+.inputs i7 i6 i5 i4 i3 i2 i1 i0 k7 k6 k5 k4 k3 k2 k1 k0 cin
+.outputs o7 o6 o5 o4 o3 o2 o1 o0 cout
+.subckt SOMMATORE_1_BIT i0=i0 i1=k0 cin=cin   cout=cout0 o0=o0
+.subckt SOMMATORE_1_BIT i0=i1 i1=k1 cin=cout0 cout=cout1 o0=o1
+.subckt SOMMATORE_1_BIT i0=i2 i1=k2 cin=cout1 cout=cout2 o0=o2
+.subckt SOMMATORE_1_BIT i0=i3 i1=k3 cin=cout2 cout=cout3 o0=o3
+.subckt SOMMATORE_1_BIT i0=i4 i1=k4 cin=cout3 cout=cout4 o0=o4
+.subckt SOMMATORE_1_BIT i0=i5 i1=k5 cin=cout4 cout=cout5 o0=o5
+.subckt SOMMATORE_1_BIT i0=i6 i1=k6 cin=cout5 cout=cout6 o0=o6
+.subckt SOMMATORE_1_BIT i0=i7 i1=k7 cin=cout6 cout=cout  o0=o7
+.search sum_1in.blif
+.end

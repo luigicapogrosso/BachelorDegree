@@ -1,0 +1,20 @@
+# Modello modulo "datapath"
+
+.model DATAPATH
+.inputs start ph7 ph6 ph5 ph4 ph3 ph2 ph1 ph0
+.outputs to st1 st0 nck7 nck6 nck5 nck4 nck3 nck2 nck1 nck0
+
+# Dichiarazione modulo PH. L'ingresso "phX" è collegato all'ingresso 
+# del modello, l'uscita "stX" sono collegate all'uscita "stX" del modello
+.subckt PH ph7=ph7 ph6=ph6 ph5=ph5 ph4=ph4 ph3=ph3 ph2=ph2 ph1=ph1 ph0=ph0 st0=st0 st1=st1
+
+# Dichiarazione CONTATORE. L'ingresso start è collegato all'ingresso 
+# start del modello, l'uscita "oX" è collegata all'uscita "nckX" 
+# del modello.
+.subckt CONTATORE start=start o7=nck7 o6=nck6 o5=nck5 o4=nck4 o3=nck3 o2=nck2 o1=nck1 o0=nck0 to=to
+
+# Sezione search
+.search PH.blif
+.search CONTATORE.blif
+
+.end

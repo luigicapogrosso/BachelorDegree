@@ -1,0 +1,7 @@
+# Modello costante 0 su 1 bit
+
+.model CONST_0
+.outputs out
+.names out
+0
+.end

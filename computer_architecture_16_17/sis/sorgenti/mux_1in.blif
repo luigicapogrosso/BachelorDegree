@@ -1,0 +1,12 @@
+# Modello selettore tra due sequenze su 1 bit. 
+# Restituisce i0 se s0 = 1, altrimenti restituisce i1
+
+.model MUX_1_BIT
+.inputs s0 i0 i1
+.outputs o0
+
+.names s0 i0 i1 o0
+11- 1
+0-1 1
+
+.end

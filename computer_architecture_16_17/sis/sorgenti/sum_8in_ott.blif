@@ -1,0 +1,81 @@
+.model SOMMATORE_8_BIT
+.inputs i7 i6 i5 i4 i3 i2 i1 i0 k7 k6 k5 k4 k3 k2 k1 k0 cin
+.outputs o7 o6 o5 o4 o3 o2 o1 o0 cout
+.default_input_arrival 0.00 0.00 
+.default_output_required 0.00 0.00 
+.default_input_drive 0.20 0.20 
+.default_output_load 1.00 
+.default_max_input_load 999.00 
+.names i7 k7 [2320]
+01 1
+10 1
+.names i0 k0 [2309]
+01 1
+10 1
+.names i0 cin [2309] [2311]
+-11 1
+1-0 1
+.names i1 k1 [2306]
+01 1
+10 1
+.names i1 [2311] [2306] [2312]
+-11 1
+1-0 1
+.names i2 k2 [2303]
+01 1
+10 1
+.names i2 [2312] [2303] [2313]
+-11 1
+1-0 1
+.names i3 k3 [2300]
+01 1
+10 1
+.names i3 [2313] [2300] [2314]
+-11 1
+1-0 1
+.names i4 k4 [2297]
+01 1
+10 1
+.names i4 [2314] [2297] [2315]
+-11 1
+1-0 1
+.names i5 k5 [2294]
+01 1
+10 1
+.names i5 [2315] [2294] [2316]
+-11 1
+1-0 1
+.names i6 k6 [2291]
+01 1
+10 1
+.names i6 [2316] [2291] [2317]
+-11 1
+1-0 1
+.names [2320] [2317] o7
+01 1
+10 1
+.names [2316] [2291] o6
+01 1
+10 1
+.names [2315] [2294] o5
+01 1
+10 1
+.names [2314] [2297] o4
+01 1
+10 1
+.names [2313] [2300] o3
+01 1
+10 1
+.names [2312] [2303] o2
+01 1
+10 1
+.names [2311] [2306] o1
+01 1
+10 1
+.names cin [2309] o0
+01 1
+10 1
+.names i7 [2320] [2317] cout
+10- 1
+-11 1
+.end

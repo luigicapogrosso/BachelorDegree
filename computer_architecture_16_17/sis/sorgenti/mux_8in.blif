@@ -1,0 +1,16 @@
+# Modello selettore tra due sequenze su 8 bit. 
+# Restituisce unoX su oX se s0 = 1, altrimenti restituisce zeroX
+
+.model MUX_8_BIT
+.inputs s0 uno0 uno1 uno2 uno3 uno4 uno5 uno6 uno7 zero0 zero1 zero2 zero3 zero4 zero5 zero6 zero7
+.outputs o0 o1 o2 o3 o4 o5 o6 o7
+
+# Abbiamo usato quattro selettori su 2 bit per facilitare 
+# lo sviluppo
+.subckt MUX_2_BIT s0=s0 uno0=uno0 uno1=uno1 zero0=zero0 zero1=zero1 o0=o0 o1=o1
+.subckt MUX_2_BIT s0=s0 uno0=uno2 uno1=uno3 zero0=zero2 zero1=zero3 o0=o2 o1=o3
+.subckt MUX_2_BIT s0=s0 uno0=uno4 uno1=uno5 zero0=zero4 zero1=zero5 o0=o4 o1=o5
+.subckt MUX_2_BIT s0=s0 uno0=uno6 uno1=uno7 zero0=zero6 zero1=zero7 o0=o6 o1=o7
+
+.search mux_2in.blif
+.end

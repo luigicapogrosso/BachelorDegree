@@ -1,0 +1,17 @@
+# Modello registro su 8 bit
+
+.model REGISTRO_8_BIT
+.inputs i7 i6 i5 i4 i3 i2 i1 i0
+.outputs o7 o6 o5 o4 o3 o2 o1 o0
+
+.subckt REGISTRO_1_BIT i0=i7 o0=o7
+.subckt REGISTRO_1_BIT i0=i6 o0=o6
+.subckt REGISTRO_1_BIT i0=i5 o0=o5
+.subckt REGISTRO_1_BIT i0=i4 o0=o4
+.subckt REGISTRO_1_BIT i0=i3 o0=o3
+.subckt REGISTRO_1_BIT i0=i2 o0=o2
+.subckt REGISTRO_1_BIT i0=i1 o0=o1
+.subckt REGISTRO_1_BIT i0=i0 o0=o0
+.search reg_1in.blif
+
+.end

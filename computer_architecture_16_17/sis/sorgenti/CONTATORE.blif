@@ -1,0 +1,38 @@
+# Modello modulo "contatore"
+
+.model CONTATORE
+.inputs start
+.outputs to o7 o6 o5 o4 o3 o2 o1 o0
+
+# Dichiarazione costanti zero, uno e cinque
+.subckt CONST_0 out=zero
+.subckt CONST_1 out=uno
+.subckt CONST_5_8_BIT o7=cinque7 o6=cinque6 o5=cinque5 o4=cinque4 o3=cinque3 o2=cinque2 o1=cinque1 o0=cinque0
+
+# Dichirazione registro, riceve ingresso l'uscita del "sumX" del sommatore.
+# l'uscita "regX" è collegata all'ingresso "zeroX" del mux
+.subckt REGISTRO_8_BIT i0=sum0 i1=sum1 i2=sum2 i3=sum3 i4=sum4 i5=sum5 i6=sum6 i7=sum7 o0=reg0 o1=reg1 o2=reg2 o3=reg3 o4=reg4 o5=reg5 o6=reg6 o7=reg7
+
+# Dichiarazione mux 8 bit. L'ingresso "unoX" è collegato alla 
+# costante zero, l'ingresso "zeroX" è collegato all'uscita del registro.
+# L'uscita "oX" è collegata all'ingresso "iX" del sommatore
+.subckt MUX_8_BIT s0=start uno0=zero uno1=zero uno2=zero uno3=zero uno4=zero uno5=zero uno6=zero uno7=zero zero0=reg0 zero1=reg1 zero2=reg2 zero3=reg3 zero4=reg4 zero5=reg5 zero6=reg6 zero7=reg7 o0=o0 o1=o1 o2=o2 o3=o3 o4=o4 o5=o5 o6=o6 o7=o7
+
+# Dichiarazione sommatore, l'ingresso "iX" è collegato all'uscita "oX" del mux, 
+# l'ingresso "kX" è collegato alle costanti zero e uno affinché la loro composizione abbia valore 1. 
+# L'output "oX" del sommatore è collegato all'ingresso "iX" del registro
+.subckt SOMMATORE_8_BIT i0=o0 i1=o1 i2=o2 i3=o3 i4=o4 i5=o5 i6=o6 i7=o7 k0=uno k1=zero k2=zero k3=zero k4=zero k5=zero k6=zero k7=zero cin=zero o0=sum0 o1=sum1 o2=sum2 o3=sum3 o4=sum4 o5=sum5 o6=sum6 o7=sum7
+
+# Dichiarazione maggiore di 4 (e output su TO)
+.subckt MAGGIORE_8_BIT i7=sum7 i6=sum6 i5=sum5 i4=sum4 i3=sum3 i2=sum2 i1=sum1 i0=sum0 k7=cinque7 k6=cinque6 k5=cinque5 k4=cinque4 k3=cinque3 k2=cinque2 k1=cinque1 k0=cinque0 o0=to
+
+# Sezione "search"
+.search reg_8in.blif
+.search const0.blif
+.search const1.blif
+.search const5_8b.blif
+.search sum_8in_ott.blif
+.search mux_8in.blif
+.search max_8in_ott.blif
+
+.end

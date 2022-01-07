@@ -1,0 +1,12 @@
+# Modello comparatore tra due sequenze su 1 bit. 
+# Restituisce 1 se i0 > i1, altrimenti restituisce 0
+
+.model MAGGIORE_1_BIT
+.inputs i0 i1
+.outputs o0
+
+# Se i0 > i1 allora o0 = 1, altrimenti o0 = 0 
+.names i0 i1 o0
+10 1
+
+.end

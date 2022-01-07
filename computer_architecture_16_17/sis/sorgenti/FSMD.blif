@@ -1,0 +1,198 @@
+.model FSMD
+.inputs init reset ph7 ph6 ph5 ph4 ph3 ph2 ph1 ph0
+.outputs st1_OUT st0_OUT nck7 nck6 nck5 nck4 nck3 nck2 nck1 nck0 vlv1 vlv0
+.default_input_arrival 0.00 0.00 
+.default_output_required 0.00 0.00 
+.default_input_drive 0.20 0.20 
+.default_output_load 1.00 
+.default_max_input_load 999.00 
+.latch    [6459] reg7 re NIL 0
+.latch    [6460] reg6 re NIL 0
+.latch    [6458] reg5 re NIL 0
+.latch    [6773] reg4 re NIL 0
+.latch    [6456] reg3 re NIL 0
+.latch    [6457] reg2 re NIL 0
+.latch    [6455] reg1 re NIL 0
+.latch    sum0 reg0 re NIL 0
+.latch    [6454] LatchOut_v5 re NIL 1
+.latch    [6806] LatchOut_v6 re NIL 0
+.names reset init [6384]
+01 1
+.names ph7 [6652]
+0 1
+.names ph6 [6604]
+0 1
+.names ph3 ph5 ph4 [6587]
+111 1
+.names ph1 ph0 [6611]
+1- 1
+-1 1
+.names [6587] [6611] ph2 [6886]
+0-- 1
+-0- 1
+--0 1
+.names [6652] [6604] [6886] [6614]
+0-- 1
+-0- 1
+--0 1
+.names [6611] ph3 ph2 [6840]
+1-- 1
+-1- 1
+--1 1
+.names ph5 [6840] ph4 [6417]
+00- 1
+0-0 1
+.names [6614] [6417] [6604] [6616]
+0-- 1
+-00 1
+.names [6384] ph7 [6616] [6617]
+0-- 1
+-00 1
+.names [6617] st0_OUT
+0 1
+.names LatchOut_v6 LatchOut_v5 [6419]
+01 1
+.names [6617] [6614] [6618]
+1- 1
+-0 1
+.names st0_OUT [6419] LatchOut_v6 [6618] [6620]
+00-- 1
+--00 1
+.names [6620] [6900]
+0 1
+.names reset init [6603]
+1- 1
+-0 1
+.names [6618] st0_OUT [6603] st1_OUT
+0-- 1
+-00 1
+.names LatchOut_v5 [6619]
+0 1
+.names [6900] st1_OUT [6619] [6621]
+0-- 1
+-00 1
+.names [6621] reg6 [6625]
+1- 1
+-0 1
+.names [6625] nck6
+0 1
+.names [6621] reg5 [6627]
+1- 1
+-0 1
+.names [6621] reg4 [6629]
+1- 1
+-0 1
+.names [6621] reg3 [6631]
+1- 1
+-0 1
+.names [6621] reg2 [6634]
+1- 1
+-0 1
+.names [6621] reg0 [6930]
+1- 1
+-0 1
+.names [6621] reg1 [6636]
+1- 1
+-0 1
+.names [6930] [6636] [6638]
+1- 1
+-1 1
+.names [6629] [6631] [6634] [6638] [6640]
+1--- 1
+-1-- 1
+--1- 1
+---1 1
+.names [6627] [6640] [6395]
+00 1
+.names [6625] nck6 [6395] [6924]
+1-1 1
+-10 1
+.names [6924] nck6 [6394]
+01 1
+.names [6621] reg7 [6374]
+01 1
+.names [6394] [6374] [6923]
+01 1
+10 1
+.names [6923] [6459]
+1 1
+.names [6924] [6460]
+1 1
+.names [6640] [6794]
+0 1
+.names [6627] nck5
+0 1
+.names [6794] [6627] nck5 [6640] [6925]
+00-- 1
+--00 1
+.names [6925] [6458]
+1 1
+.names [6631] nck3
+0 1
+.names [6634] nck2
+0 1
+.names [6638] [6822]
+0 1
+.names nck2 [6638] [6822] [6634] [6928]
+00-- 1
+--00 1
+.names [6928] nck2 [6396]
+01 1
+.names [6631] nck3 [6396] [6927]
+1-1 1
+-10 1
+.names [6629] [6927] [6631] [6844]
+0-- 1
+-00 1
+.names [6794] [6844] [6772]
+1- 1
+-0 1
+.names [6772] [6926]
+0 1
+.names [6926] [6773]
+1 1
+.names [6927] [6456]
+1 1
+.names [6928] [6457]
+1 1
+.names [6930] nck0
+0 1
+.names [6636] nck1
+0 1
+.names nck0 [6636] nck1 [6930] [6929]
+00-- 1
+--00 1
+.names [6929] [6455]
+1 1
+.names [6930] sum0
+1 1
+.names st1_OUT st0_OUT [6931]
+1- 1
+-0 1
+.names [6931] [6454]
+1 1
+.names [6618] [6932]
+0 1
+.names [6932] [6806]
+1 1
+.names [6621] reg7 [6623]
+1- 1
+-0 1
+.names [6623] nck7
+0 1
+.names [6629] nck4
+0 1
+.names [6923] [6927] [6924] [6470]
+000 1
+.names [6925] [6929] [6928] [6474]
+00- 1
+0-0 1
+.names [6470] [6772] [6474] [6819]
+0-- 1
+-0- 1
+--0 1
+.names [6618] [6819] vlv1
+01 1
+.names [6614] [6819] vlv0
+01 1
+.end

@@ -1,0 +1,11 @@
+# Modello operatore XOR di due sequenze su 1 bit
+
+.model XOR
+.inputs i0 i1
+.outputs o0
+
+.names i0 i1 o0
+01 1
+10 1
+
+.end

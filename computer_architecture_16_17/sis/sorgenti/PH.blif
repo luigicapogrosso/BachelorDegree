@@ -1,0 +1,44 @@
+# Modello modulo "ph"
+
+.model PH
+.inputs ph7 ph6 ph5 ph4 ph3 ph2 ph1 ph0
+.outputs st1 st0
+
+# Dichirazione costanti
+.subckt CONST_ACIDO o0=acido0 o1=acido1
+.subckt CONST_BASICO o0=basico0 o1=basico1
+.subckt CONST_NEUTRO o0=neutro0 o1=neutro1
+.subckt CONST_60_8_BIT o0=sei0 o1=sei1 o2=sei2 o3=sei3 o4=sei4 o5=sei5 o6=sei6 o7=sei7 
+.subckt CONST_80_8_BIT o0=otto0 o1=otto1 o2=otto2 o3=otto3 o4=otto4 o5=otto5 o6=otto6 o7=otto7
+
+# Dichiarazione maggiore 8. Restituisce 1 phX > kX è vero 
+# (valore costante 80), 0 se falso. L'uscita o0 del comparatore è collegata
+# all'ingresso del mux "MUX1"
+.subckt MAGGIORE_8_BIT i7=ph7 i6=ph6 i5=ph5 i4=ph4 i3=ph3 i2=ph2 i1=ph1 i0=ph0 k7=otto7 k6=otto6 k5=otto5 k4=otto4 k3=otto3 k2=otto2 k1=otto1 k0=otto0 o0=max8
+
+# Dichiarazione maggiore 8. Restituisce 1 phX > kX è vero 
+# (valore costante 60), 0 se falso. L'uscita o0 del comparatore è collegata
+# all'ingresso del mux "MUX2"
+.subckt MAGGIORE_8_BIT i7=ph7 i6=ph6 i5=ph5 i4=ph4 i3=ph3 i2=ph2 i1=ph1 i0=ph0 k7=sei7 k6=sei6 k5=sei5 k4=sei4 k3=sei3 k2=sei2 k1=sei1 k0=sei0 o0=max6
+
+# (MUX1) Dichiarazione mux con ingresso selettore collegato a "max8".
+# Se il selettore ha valore 1 viene restituito in uscita l'ingresso unoX
+# se falso zeroX. L'uscita oX del mux è collegata all'ingresso "1" di "MUX2"
+.subckt MUX_2_BIT s0=max8 uno1=basico1 uno0=basico0 zero1=neutro1 zero0=neutro0 o0=mux8_0 o1=mux8_1
+
+# (MUX2) Dichiarazione mux con ingresso selettore collegato a "max6".
+# Se il selettore ha valore 1 viene restituito in uscita l'ingresso unoX
+# se falso zeroX. L'uscita oX del mux è collegata all'uscita stX del modello
+.subckt MUX_2_BIT s0=max6 uno1=mux8_1 uno0=mux8_0 zero1=acido1 zero0=acido0 o0=st0 o1=st1
+
+# Sezione search
+.search max_8in_ott.blif
+.search mux_2in.blif
+.search constAcido.blif
+.search constBasico.blif
+.search constNeutro.blif
+.search const0.blif
+.search const80_8b.blif
+.search const60_8b.blif
+
+.end

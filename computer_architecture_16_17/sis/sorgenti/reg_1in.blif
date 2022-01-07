@@ -1,0 +1,9 @@
+# Modello registro su 1 bit
+
+.model REGISTRO_1_BIT
+.inputs i0
+.outputs o0
+
+.latch i0 o0 re NIL 0
+
+.end

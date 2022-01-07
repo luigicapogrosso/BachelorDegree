@@ -1,0 +1,28 @@
+# Modello comparatore tra due sequenze su 8 bit. 
+# Restituisce 1 se iX > kX, altrimenti restituisce 0
+
+.model MAGGIORE_8_BIT
+.inputs i7 i6 i5 i4 i3 i2 i1 i0 k7 k6 k5 k4 k3 k2 k1 k0
+.outputs o0
+.subckt XOR i1=i7 i0=k7 o0=x7
+.subckt XOR i1=i6 i0=k6 o0=x6
+.subckt XOR i1=i5 i0=k5 o0=x5
+.subckt XOR i1=i4 i0=k4 o0=x4
+.subckt XOR i1=i3 i0=k3 o0=x3
+.subckt XOR i1=i2 i0=k2 o0=x2
+.subckt XOR i1=i1 i0=k1 o0=x1
+.subckt XOR i1=i0 i0=k0 o0=x0
+
+# Se iX > kX allora o0 = 1, altrimenti o0 = 0
+.names i7 i6 i5 i4 i3 i2 i1 i0 x7 x6 x5 x4 x3 x2 x1 x0 o0
+1-------1------- 1
+-1------01------ 1
+--1-----001----- 1
+---1----0001---- 1
+----1---00001--- 1
+-----1--000001-- 1
+------1-0000001- 1
+-------100000001 1
+.search xor_1in.blif
+
+.end

@@ -1,0 +1,38 @@
+.model MAGGIORE_8_BIT
+.inputs i7 i6 i5 i4 i3 i2 i1 i0 k7 k6 k5 k4 k3 k2 k1 k0
+.outputs o0
+.default_input_arrival 0.00 0.00 
+.default_output_required 0.00 0.00 
+.default_input_drive 0.20 0.20 
+.default_output_load 1.00 
+.default_max_input_load 999.00 
+.names k6 i6 [1979]
+01 1
+10 1
+.names k4 i4 [1972]
+01 1
+10 1
+.names k3 i3 [1866]
+01 1
+10 1
+.names k2 i2 [1965]
+01 1
+10 1
+.names i4 i3 i2 i1 i0 k1 k0 [1972] [1866] [1965] [1412]
+1------1-- 1
+-1-----01- 1
+--1----001 1
+---1-0-000 1
+---11-0000 1
+----100000 1
+.names i7 i6 k7 [1979] [2049] o0
+1-0-- 1
+11-1- 1
+-101- 1
+1--01 1
+--001 1
+.names i5 k5 [1412] [2049]
+10- 1
+1-1 1
+-01 1
+.end

@@ -1,0 +1,9 @@
+# Modello costante 01 (codifica acido) su 2 bit
+
+.model CONST_ACIDO
+.outputs o1 o0
+.subckt CONST_0 out=o1
+.subckt CONST_1 out=o0
+.search const1.blif
+.search const0.blif
+.end
